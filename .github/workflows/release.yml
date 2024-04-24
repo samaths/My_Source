@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v2.4.0
         with:
           repository: samaths/My_Target
-          token: ${{ secrets.MYTOKEN }}
+          token: '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'
           path: ./My_Target
      
       - name: Update release.txt
