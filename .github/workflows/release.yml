@@ -11,18 +11,7 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 20
-      - run: npm install --save-exact
-
-
-      - run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.MYTOKEN }}   
-   
-
+    
       - name: Checkout release.txt
         uses: actions/checkout@v2.4.0
         with:
@@ -41,4 +30,4 @@ jobs:
         with:
           cwd: ./My_Target
           message: ${{ steps.generate_commit_message.outputs.message }}
-          branch: main 
+          branch: feature-100 
