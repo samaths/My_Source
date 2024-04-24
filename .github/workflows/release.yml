@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - name: Checkout release.txt
-        uses: actions/checkout@v2.4.0
+      
+     
+      - name: Update release.txt
+      - uses: actions/checkout@v2.4.0
         with:
           repository: samaths/My_Target
           ref: feature-100
           token: ${{ secrets.MYTOKEN }} 
           path: ./My_Target
-     
-      - name: Update release.txt
         id: generate_commit_message
-        run: |
+      - run: |
             grep ':' release.txt > ./My_Target/release.txt
             echo "##[set-output name=message;]$(grep ':' release.txt)"            
           
