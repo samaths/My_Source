@@ -1,0 +1,50 @@
+
+name: Release
+
+on:
+  push:
+  
+jobs:
+  release:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 20
+      - run: npm install --save-exact
+      
+      
+      - run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.MYTOKEN }}  
+                
+      - name: Push the changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: 'update the version'
+          branch: next       
+
+      - name: Checkout release.txt
+        uses: actions/checkout@v2.4.0
+        with:
+          repository: AruNiv/My_Target
+          token: ${{ secrets.MYTOKEN }}
+          path: ./My_Target
+     
+      - name: Update release.txt
+        id: generate_commit_message
+        run: |
+            grep ':' release.txt > ./My_Target/release.txt
+            echo "##[set-output name=message;]$(grep ':' release.txt)"            
+          
+      - name: Push the changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          cwd: ./My_Target
+          message: ${{ steps.generate_commit_message.outputs.message }}
+          branch: main 
