@@ -2,6 +2,7 @@
 name: Release
 
 on:
+  push:
  
   
 jobs:
@@ -21,7 +22,7 @@ jobs:
       
       - run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.MYTOKEN }}  
+          GITHUB_TOKEN: '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'  
                 
       - name: Push the changes
         uses: EndBug/add-and-commit@v7
@@ -47,4 +48,4 @@ jobs:
         with:
           cwd: ./My_Target
           message: ${{ steps.generate_commit_message.outputs.message }}
-          branch: main 
+          branch: feature-100 
