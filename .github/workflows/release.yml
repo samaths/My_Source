@@ -33,7 +33,7 @@ jobs:
       - name: Checkout release.txt
         uses: actions/checkout@v2.4.0
         with:
-          repository: AruNiv/My_Target
+          repository: samaths/My_Target
           token: ${{ secrets.MYTOKEN }}
           path: ./My_Target
      
