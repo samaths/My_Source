@@ -13,12 +13,10 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-    
+      - uses: actions/checkout@v2
+      
       - name: Checkout release.txt
         uses: actions/checkout@v2.4.0
-        env:
-          GITHUB_TOKEN: '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'
-          
         with:
           repository: samaths/My_Target
           token: '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'
