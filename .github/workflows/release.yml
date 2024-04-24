@@ -23,12 +23,12 @@ jobs:
           path: ./My_Target
         id: generate_commit_message
       - run: |
-            grep ':' release.txt > ./My_Target/release.txt
+            grep ':' ./My_Source/release.txt > ./My_Target/release.txt
             echo "##[set-output name=message;]$(grep ':' release.txt)"            
           
       - name: Push the changes
         uses: EndBug/add-and-commit@v7
         with:
           cwd: ./My_Target
-          message: ${{ steps.generate_commit_message.outputs.message }}
+          message: 'my test msg'
           branch: feature-100 
