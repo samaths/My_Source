@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v2.4.0
         with:
           repository: samaths/My_Target
+          ref: feature-100
           token: ${{ secrets.MYTOKEN }} 
           path: ./My_Target
      
