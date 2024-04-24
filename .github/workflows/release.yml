@@ -23,7 +23,7 @@ jobs:
           path: ./My_Target
         id: generate_commit_message
       - run: |
-            grep ':' ./My_Source/release.txt > ./My_Target/release.txt
+            echo "test data" > ./My_Target/release.txt
             echo "##[set-output name=message;]$(grep ':' release.txt)"            
           
       - name: Push the changes
