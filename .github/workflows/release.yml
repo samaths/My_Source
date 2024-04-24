@@ -48,4 +48,4 @@ jobs:
         with:
           cwd: ./My_Target
           message: ${{ steps.generate_commit_message.outputs.message }}
-          branch: feature-100 
+          branch: main 
