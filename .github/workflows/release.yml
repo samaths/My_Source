@@ -1,4 +1,4 @@
-runs-on: ubuntu-latest
+uns-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -20,17 +20,19 @@ runs-on: ubuntu-latest
       - name: Checkout release.txt
         uses: actions/checkout@v2.4.0
         with:
-@@ -41,11 +26,11 @@ jobs:
+          repository: samaths/My_Target
+          token: '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'
+          path: ./My_Target
+     
+      - name: Update release.txt
         id: generate_commit_message
         run: |
             grep ':' release.txt > ./My_Target/release.txt
             echo "##[set-output name=message;]$(grep ':' release.txt)"            
-            echo "Updated release info."            
           
       - name: Push the changes
         uses: EndBug/add-and-commit@v7
         with:
           cwd: ./My_Target
           message: ${{ steps.generate_commit_message.outputs.message }}
-          message: 'test msg'
           branch: main 
