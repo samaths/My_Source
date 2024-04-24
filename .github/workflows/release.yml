@@ -20,14 +20,14 @@ jobs:
 
       - run: npx semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.MYTOKEN }}   
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
    
 
       - name: Checkout release.txt
         uses: actions/checkout@v2.4.0
         with:
           repository: samaths/My_Target
-          token: ${{ secrets.MYTOKEN }} 
+          token: ${{ secrets.GITHUB_TOKEN }} 
           path: ./My_Target
      
       - name: Update release.txt
