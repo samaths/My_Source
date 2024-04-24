@@ -15,7 +15,7 @@ jobs:
       
      
       - name: Update release.txt
-      - uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v2.4.0
         with:
           repository: samaths/My_Target
           ref: feature-100
