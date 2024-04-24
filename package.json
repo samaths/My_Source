@@ -1,0 +1,30 @@
+{
+  "name": "My_Source",
+  "version": "2.0.0",
+  "description": "This repository is a POC of how to create and release actions.",
+  "main": "welcome.sh",
+  "scripts": {
+    "release": "semantic-release",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AruNiv/My_Source.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AruNiv/My_Source/issues"
+  },
+  "homepage": "https://github.com/AruNiv/My_Source#readme",
+  "dependencies": {
+    "@actions/core": "1.10.0"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "10.0.1",
+    "@semantic-release/exec": "6.0.3",
+    "@semantic-release/github": "8.0.6",
+    "semantic-release": "19.0.5"
+  }
+}
