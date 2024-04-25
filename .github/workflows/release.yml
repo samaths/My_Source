@@ -4,6 +4,8 @@ on:
   push:
   
 jobs:
+  env:
+    new_version: ''
   release:
     permissions:
       contents: write
@@ -12,12 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      
+
+      - name: Update new_version
+        run: echo "$(grep ^[0-9] < release.txt)" >> $new_version
      
       - name: Update release.txt
         uses: actions/checkout@v2.4.0
-              new_version=`grep ^[0-9] < release.txt`
-        if: ${{$new_version != ''}}
+        if: ${{env.new_version != ''}}
         with:
           repository: samaths/My_Target
           ref: feature-100
@@ -29,9 +32,8 @@ jobs:
             echo "##[set-output name=message;]$(grep ':' release.txt)"            
           
       - name: Push the changes
-              new_version=`grep ^[0-9] < release.txt`
-        if: ${{new_version != ''}}
-        uses: EndBug/add-and-commit@v7
+        if: ${{env.new_version != ''}}
+        uses: EndBug/add-and-commit@v
         with:
           cwd: ./My_Target
           message: 'my test msg'
