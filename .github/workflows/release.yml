@@ -4,14 +4,14 @@ on:
   push:
   
 jobs:
-  env:
-    new_version: ''
   release:
     permissions:
       contents: write
       issues: write
       pull-requests: write
     runs-on: ubuntu-latest
+    env:
+      new_version: ''
     steps:
     
 
