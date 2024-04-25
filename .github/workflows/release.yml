@@ -19,7 +19,7 @@ jobs:
       - name: Update new_version
         run: | 
               echo "1.2.3" >> $env.new_version
-              echo "$(`grep ^[0-9] < release.txt`)" >> $env.new_version
+              echo "$(`grep ^[0-9] < release.txt`| cut -d"=" -f2)" >> $env.new_version
            
      
       - name: Update release.txt
