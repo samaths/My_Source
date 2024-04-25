@@ -13,10 +13,13 @@ jobs:
     env:
       new_version: ''
     steps:
+      - uses: actions/checkout@v4
     
 
       - name: Update new_version
-        run: new_version=`grep ^[0-9] < release.txt`
+        run: | 
+              new_version=`grep ^[0-9] < release.txt`
+              ${{env.new_version}} = $new_version
            
      
       - name: Update release.txt
