@@ -17,7 +17,7 @@ jobs:
 
       - name: Update new_version
         run: |
-            ${{env.new_version}}=`grep ^[0-9] < ./My_Source/release.txt`
+            new_version=`grep ^[0-9] < release.txt`
             echo "${{env.new_version}}" >> ./My_Source/release.txt
      
       - name: Update release.txt
