@@ -22,7 +22,6 @@ jobs:
            
      
       - name: Update release.txt
-        if: ${{env.new_version != ''}}
         uses: actions/checkout@v2.4.0
         with:
           repository: samaths/My_Target
