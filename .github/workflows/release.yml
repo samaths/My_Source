@@ -16,9 +16,8 @@ jobs:
     
 
       - name: Update new_version
-        run: |
-            new_version=`grep ^[0-9] < release.txt`
-            echo "${{env.new_version}}" >> ./My_Source/release.txt
+        run: new_version=`grep ^[0-9] < release.txt`
+           
      
       - name: Update release.txt
         uses: actions/checkout@v2.4.0
